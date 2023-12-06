@@ -1,11 +1,15 @@
-import { RadixCheckbox, TaskContainer, TaskText, TrashButton } from "./styles"
+"use client"
+
+import { TaskContainer, TaskText, TrashButton } from "./styles"
+import { Checkbox } from './components/Checkbox/index'
+import { TrashSimple } from "phosphor-react"
 
 export const Task = ({ taskText }: {taskText: string} ) => {
   return (
     <TaskContainer>
-      <RadixCheckbox />
+      <Checkbox />
       <TaskText>{taskText}</TaskText>
-      <TrashButton />
+      <TrashButton><TrashSimple size={16}/></TrashButton>
     </TaskContainer>
   )
 }

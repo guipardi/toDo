@@ -1,22 +1,29 @@
+"use client"
+
+import Image from "next/image"
+import emptyTaskListImage from '@/utils/images/emptyTaskList.svg'
 import { Task } from "./components/Task"
-import { TaskContainer } from "./components/Task/styles"
 import { TaskListContainer } from "./styles"
+import { useState } from "react"
+
+interface Task {
+  taskText: string
+}
 
 export const TaskList = () => {
-  const tasksOnList = [
-    {taskText: 'Arrumar a casa'},
-    {taskText: 'Lavar a louça'},
-    {taskText: 'Guardar as compras'},
-    {taskText: 'Regar as plantas'},
-  ]
+  const [taskList, setTaskList] = useState<Task[] | []>([])
 
   return (
     <TaskListContainer>
-      {tasksOnList.map((item) => {
-        return (
-          <Task key={item.taskText} taskText={item.taskText}/>
-        )
-      })}
+      {taskList.length > 0 ? (
+        taskList.map((item: Task) => {
+          return (
+            <Task key={item.taskText} taskText={item.taskText}/>
+          )
+        })
+      ) : (
+        <Image src={emptyTaskListImage} alt="Nao há tarefas"/>
+      )}
     </TaskListContainer>
   )
 }
