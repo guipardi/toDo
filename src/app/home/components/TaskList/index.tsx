@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import emptyTaskListImage from '@/utils/images/emptyTaskList.svg'
+import emptyTaskList from "@/src/utils/images/emptyTaskList.svg"
 import { Task } from "./components/Task"
 import { TaskListContainer } from "./styles"
 import { useState } from "react"
@@ -22,7 +22,7 @@ export const TaskList = () => {
           )
         })
       ) : (
-        <Image src={emptyTaskListImage} alt="Nao há tarefas"/>
+        <Image src={emptyTaskList} alt="Nao há tarefas"/>
       )}
     </TaskListContainer>
   )
